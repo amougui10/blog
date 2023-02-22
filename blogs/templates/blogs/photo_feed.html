@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h2>plus de flux de photo</h2>
+	<div class="grid-container">
+		{% for photo in photos %}
+			{% include 'blogs/partials/photo_snipper.html' %}
+		{% endfor%}
+	</div> 
+{% endblock  content %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load blog_extras %}
+{% block content %}
+
+ <h2>votre flux de photos</h2>
+   <div class='gird-container'> 
+    {% for instance in page_obj %}
+        {% if instance|model_type == 'Blog' %}
+            {% include 'blogs/partials/blog_snipper.html' with blog=instance %}
+        {% elif instance|model_type == 'Photo' %}
+            {% include 'blogs/partials/photo_snipper.html' with photo=instance %}
+        {% endif %}
+    {% endfor %}
+   </div>
+   {% include 'partials/page_navigator.html' %}
+ {% endblock content %}
+
